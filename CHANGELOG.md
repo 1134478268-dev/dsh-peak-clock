@@ -1,5 +1,9 @@
 # 变更记录
 
+## 1.0.2
+- 仓库整理（**不影响功能**）：6 个测试文件移入 `test/`、内部发布指南 `RELEASING.md` 移出仓库、`.github/workflows/publish.yml` 合并为 `ci.yml`（push/PR 跑测试，打 tag 时发 npm）
+
+
 ## 1.0.1
 - 新增 TRANSPARENCY.md（中英双语透明说明）：列出参考来源（官方定价页、节假日数据、社区插件的 API 契约与数据格式）与原创范围，并明确本插件不发起模型请求、不联网、不读取凭据、不写本地文件
 - README 顶部导航与「注意 / Notes」加入透明说明入口；npm 包内含 TRANSPARENCY.md`n

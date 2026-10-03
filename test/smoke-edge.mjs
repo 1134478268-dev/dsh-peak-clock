@@ -1,8 +1,11 @@
 import fs from "node:fs";
-import { apply, usageOf, todayUsage } from "./lib/host.js";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { apply, usageOf, todayUsage } from "../lib/host.js";
 let fail = 0;
 const ck = (l, c, x) => { if (c) console.log("ok   " + l); else { fail++; console.log("FAIL " + l + (x === undefined ? "" : " :: " + x)); } };
-const clientCode = fs.readFileSync("./lib/client.js", "utf8");
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const clientCode = fs.readFileSync(path.join(HERE, "../lib/client.js"), "utf8");
 let loaded = null;
 new Function("window", clientCode)({ __ModuleLoader__: { load(m) { loaded = m; } } });
 const T = loaded.factory(() => ({})).__test;

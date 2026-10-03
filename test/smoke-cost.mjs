@@ -1,4 +1,4 @@
-import { costOfUsage, priceFor, PRICES } from "./lib/host.js";
+import { costOfUsage, priceFor, PRICES } from "../lib/host.js";
 let fail = 0;
 const eq = (l, got, want) => { const ok = Math.abs(got - want) < 1e-9; if (!ok) { fail++; console.log("FAIL " + l + " got=" + got + " want=" + want); } else console.log("ok   " + l + " = " + got); };
 eq("flash/peak 1M+1M+1Mhit", costOfUsage("deepseek-flash", "peak", { inputTokens: 1e6, outputTokens: 1e6, cacheReadTokens: 1e6 }), 10.04);

@@ -1,4 +1,4 @@
-import { apply } from "./lib/host.js";
+import { apply } from "../lib/host.js";
 process.env.TZ = "Asia/Shanghai";
 let fail = 0;
 const ck = (l, c, x) => { if (c) console.log("ok   " + l); else { fail++; console.log("FAIL " + l + (x === undefined ? "" : " :: " + x)); } };

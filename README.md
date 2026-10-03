@@ -91,7 +91,7 @@ npm test    # 6 suites, 71 assertions: period logic, pricing, usage, timezone/to
 | `lib/host.js` | host half: period logic, pricing, timezone helpers, the two read-only routes |
 | `lib/client.js` | browser half: badge UI, i18n dictionaries, usage polling |
 | `cordis.patch.yml` | loader patch that mounts the plugin |
-| `smoke*.mjs` | test suites (`npm test`) |
+| `test/smoke*.mjs` | test suites (`npm test`) |
 
 ### Notes
 
@@ -257,12 +257,12 @@ npm test     # 6 个单测：时段逻辑、计价、会话用量、时区与今
 | `lib/host.js` | 宿主半边：时段计算 + 两个只读接口 + 会话用量统计与计价 |
 | `lib/client.js` | 浏览器半边：徽标渲染、时段刷新、用量轮询 |
 | `cordis.patch.yml` | 插件装载补丁（插入 Loader 行） |
-| `smoke.mjs` | 时段逻辑单测（边界、午休、周末、节假日、跨春节切换点） |
-| `smoke-cost.mjs` | 计价单测（flash/pro × 峰/闲） |
-| `smoke-usage.mjs` | 会话用量端到端（累计快照去重、模型切换、合计） |
-| `smoke-today.mjs` | 时区随系统 + 今日消费（跨天过滤、计价） |
-| `smoke-routes.mjs` | 两个接口的路由级验证（字段、405、HEAD） |
-| `smoke-edge.mjs` | 边界与容错（数字格式、节假日映射、空/异常会话、无 id 兜底） |
+| `test/smoke.mjs` | 时段逻辑单测（边界、午休、周末、节假日、跨春节切换点） |
+| `test/smoke-cost.mjs` | 计价单测（flash/pro × 峰/闲） |
+| `test/smoke-usage.mjs` | 会话用量端到端（累计快照去重、模型切换、合计） |
+| `test/smoke-today.mjs` | 时区随系统 + 今日消费（跨天过滤、计价） |
+| `test/smoke-routes.mjs` | 两个接口的路由级验证（字段、405、HEAD） |
+| `test/smoke-edge.mjs` | 边界与容错（数字格式、节假日映射、空/异常会话、无 id 兜底） |
 
 ## 卸载
 

@@ -1,4 +1,4 @@
-import { periodAt } from "./lib/host.js";
+import { periodAt } from "../lib/host.js";
 let fail = 0;
 function eq(label, got, want) {
   const ok = JSON.stringify(got) === JSON.stringify(want);

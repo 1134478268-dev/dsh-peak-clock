@@ -1,4 +1,4 @@
-import { usageOf } from "./lib/host.js";
+import { usageOf } from "../lib/host.js";
 let fail = 0;
 const eq = (l, got, want) => { if (JSON.stringify(got) !== JSON.stringify(want)) { fail++; console.log("FAIL " + l + " got=" + JSON.stringify(got) + " want=" + JSON.stringify(want)); } else console.log("ok   " + l + " = " + JSON.stringify(got)); };
 const T = (s) => Date.parse(s);
