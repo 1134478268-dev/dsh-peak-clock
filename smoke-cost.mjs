@@ -1,0 +1,12 @@
+import { costOfUsage, priceFor, PRICES } from "./lib/host.js";
+let fail = 0;
+const eq = (l, got, want) => { const ok = Math.abs(got - want) < 1e-9; if (!ok) { fail++; console.log("FAIL " + l + " got=" + got + " want=" + want); } else console.log("ok   " + l + " = " + got); };
+eq("flash/peak 1M+1M+1Mhit", costOfUsage("deepseek-flash", "peak", { inputTokens: 1e6, outputTokens: 1e6, cacheReadTokens: 1e6 }), 10.04);
+eq("flash/idle 1M+1M+1Mhit", costOfUsage("deepseek-flash", "idle", { inputTokens: 1e6, outputTokens: 1e6, cacheReadTokens: 1e6 }), 5.02);
+eq("pro/peak 1M+1M+1Mhit", costOfUsage("deepseek-v4-pro", "peak", { inputTokens: 1e6, outputTokens: 1e6, cacheReadTokens: 1e6 }), 36.3);
+eq("cacheWrite 计入未命中", costOfUsage("deepseek-flash", "idle", { cacheWriteTokens: 1e6 }), 1);
+eq("真实样例(1.36M miss + 965k out + 144.9M hit, idle)", costOfUsage("deepseek-flash", "idle", { inputTokens: 1364928, outputTokens: 965473, cacheReadTokens: 144871040 }), (1364928 * 1 + 965473 * 4 + 144871040 * 0.02) / 1e6);
+eq("闪变体识别", priceFor("deepseek-v4-flash") === PRICES["deepseek-flash"] ? 1 : 0, 1);
+eq("未知模型返回 null", priceFor("gpt-4o") === null ? 1 : 0, 1);
+console.log(fail === 0 ? "ALL PASS" : fail + " FAILED");
+process.exit(fail === 0 ? 0 : 1);

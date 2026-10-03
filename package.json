@@ -1,0 +1,45 @@
+{
+  "name": "dsh-peak-clock",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 峰谷时段 + 用量/费用指示器（随时区自适应、中英双语）· Peak/off-peak timing with token usage and spend tracking for the DSH Web UI.",
+  "type": "module",
+  "main": "lib/host.js",
+  "exports": {
+    ".": "./lib/host.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/host.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node smoke.mjs && node smoke-cost.mjs && node smoke-usage.mjs && node smoke-today.mjs && node smoke-routes.mjs && node smoke-edge.mjs"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web" }
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "peak",
+    "off-peak",
+    "pricing",
+    "token-usage",
+    "cost"
+  ],
+  "engines": { "node": ">=22" },
+  "publishConfig": { "access": "public" },
+  "repository": { "type": "git", "url": "git+https://github.com/1134478268-dev/dsh-peak-clock.git" },
+  "homepage": "https://github.com/1134478268-dev/dsh-peak-clock#readme",
+  "bugs": { "url": "https://github.com/1134478268-dev/dsh-peak-clock/issues" },
+  "author": "1134478268-dev",
+  "license": "MIT"
+}

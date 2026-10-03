@@ -1,0 +1,6 @@
+# dsh-peak-clock bundle patch：向 profile 组合中挂载一个 Loader 行。
+# 也可手动把这段 insert 加到 profile 的 cordis.patch.yml 里。
+- insert:
+    - id: peak-clock
+      name: 'dsh-peak-clock'
+
