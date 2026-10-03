@@ -1,6 +1,6 @@
 # dsh-peak-clock
 
-[English](#english) · [中文](#中文)
+[English](#english) · [中文](#中文) · [Transparency / 透明说明](TRANSPARENCY.md)
 
 > DeepSeek 峰谷时段指示器 · DeepSeek Harness (DSH) Web 插件
 > Peak/off-peak timing, token usage and spend tracking for the DeepSeek Harness Web UI.
@@ -94,6 +94,8 @@ npm test    # 6 suites, 71 assertions: period logic, pricing, usage, timezone/to
 | `smoke*.mjs` | test suites (`npm test`) |
 
 ### Notes
+
+- **Transparency**: which community plugins were referenced (API contracts / data format), what is original, and what this plugin never does — see [TRANSPARENCY.md](TRANSPARENCY.md).
 
 - The host half is an **ESM module**: after updating it you must **restart DSH once** (Node caches ESM forever; replacing the file, disabling/re-enabling the plugin row, and even changing the entry filename were all verified *not* to hot-reload it). The client half only needs a page refresh.
 - The holiday table must be refreshed once a year from the State Council schedule (two files: `lib/host.js` and `lib/client.js`). Until then the plugin is merely conservative — it would treat a holiday weekday as a working day.
@@ -234,6 +236,8 @@ node <node> <pnpm> add ./dsh-peak-clock-<version>.tgz
 ```
 
 ## 注意
+
+- **透明说明**：参考了哪些社区插件的 API 契约与数据格式、哪些是原创、以及本插件绝不做的事 —— 见 [TRANSPARENCY.md](TRANSPARENCY.md)。
 
 - **今日消费按本机时区**：当天 00:00 起算，跨会话只统计今天发生的调用；价格仍按每次调用时刻的**北京时间**峰谷档位
 - **时区**：峰谷判断永远按官方口径（北京时间）；界面显示的时间随时区变化，并与北京时间并列对照（含 UTC 偏移）
